@@ -14,6 +14,13 @@ class ProfileList extends React.Component {
           age: 22,
           sign: 'scorpio',
           subject: 'computer science'
+        },
+        {
+          id: 2,
+          name: 'Jan',
+          age: 25,
+          sign: 'sagitarius',
+          subject: 'economics'
         }
       ],
       comments: [
@@ -22,7 +29,19 @@ class ProfileList extends React.Component {
           authorName: 'Jean-Philippe',
           id: 1,
           text: 'hi there, you suck!!!'
-        }
+        },
+        {
+          timestamp: 'Fri, 3:10PM',
+          authorName: 'Jean-Philippe',
+          id: 2,
+          text: 'hi there, you suck!!!'
+        },
+        {
+          timestamp: 'Fri, 4:10PM',
+          authorName: 'Jean-Claude',
+          id: 1,
+          text: 'jup!!!'
+        },
       ],
       selectedProfileId: 1
     }
@@ -31,6 +50,17 @@ class ProfileList extends React.Component {
   switchFocus = (id) => {
     this.setState(state => Object.assign(state, {}, {
       selectedProfileId: id
+    }))
+  }
+
+  addComment = (name, text, id) => {
+    this.setState(state => Object.assign(state, {}, {
+      comments: state.comments.concat([{
+        timestamp: 'now',
+        authorName: name,
+        id: id,
+        text: text
+        }])
     }))
   }
 
@@ -49,7 +79,8 @@ class ProfileList extends React.Component {
 
             <div><Profile id={profile.id} name={profile.name} age={profile.age}
                           sign={profile.sign} subject={profile.subject}
-                          comments={this.state.comments.filter(comment => comment.id === profile.id)}/>
+                          comments={this.state.comments.filter(comment => comment.id === profile.id)}
+                          commentAdder={this.addComment}/>
             </div>
           </div>
         </div>

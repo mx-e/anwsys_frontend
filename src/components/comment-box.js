@@ -10,8 +10,9 @@ class CommentBox extends React.Component {
       message: 'your message goes here'
     }
 
-    this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleMessageChange = this.handleMessageChange.bind(this);
+    this.handleNameChange = this.handleNameChange.bind(this)
+    this.handleMessageChange = this.handleMessageChange.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleNameChange = (event) => {
@@ -22,6 +23,12 @@ class CommentBox extends React.Component {
   handleMessageChange = (event) => {
     const value = event.target.value
     this.setState(state => Object.assign(state, {}, {message: value}))
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+    this.props.commentAdder(this.state.messageName, this.state.message, this.props.id)
+    this.setState({messageName: '', message: 'your message goes here'})
   }
 
   render() {

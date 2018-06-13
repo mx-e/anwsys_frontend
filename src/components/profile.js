@@ -19,7 +19,7 @@ const Profile = (props) => {
         <div className='profileDataPoint'>
           Degree Program: {props.subject}
         </div>
-        <CommentBox id={props.id} comments={props.comments}/>
+        <CommentBox id={props.id} comments={props.comments} commentAdder={props.commentAdder}/>
       </div>
     </div>
   )
