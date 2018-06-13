@@ -1,0 +1,25 @@
+.profileList{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.sideBar{
+    order: 1;
+    flex-grow: 1;
+    background-color: lightgrey;
+}
+
+.contentBox {
+    flex-grow: 2;
+    order: 2;
+}
+
+.listItem {
+    padding: 1vh;
+    font-size: 1vh;
+    background-color: grey;
+    border: solid 0.3vh lightgrey;
+    color: white;
+}

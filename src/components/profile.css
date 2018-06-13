@@ -1,0 +1,13 @@
+.profileBox{
+    padding: 2vh;
+}
+
+.dataPointList{
+    flex-direction: column;
+    display: flex;
+}
+
+.profileDataPoint{
+    text-align: left;
+    margin-bottom: 1.5vh;
+}

@@ -1,0 +1,29 @@
+.commentsList{
+    display: flex;
+    flex-direction: column;
+}
+
+.messageForm{
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.inputElem{
+    padding: 1vh;
+    text-align: left;
+}
+
+.submitButton{
+    width: 20%;
+}
+
+.messageInput{
+    width: 100%;
+    height: 3vh;
+}
+
+.commentBoxFrame{
+    text-align: left;
+    margin-top: 2vh;
+}

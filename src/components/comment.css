@@ -1,0 +1,21 @@
+.commentBox{
+    background-color: lightgrey;
+    border-radius: 20px;
+    padding: 1vh;
+    margin-top: 1vh;
+}
+.commentContent{
+    display: flex;
+    flex-direction: column;
+}
+.time{
+    font-size: 0.6vh;
+}
+
+.from{
+    font-size: 0.6vh;
+}
+
+.commentText{
+    margin-top: 0.6vh;
+}

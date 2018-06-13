@@ -1,25 +1,26 @@
 import React from 'react'
 import CommentBox from './comment-box'
+import './profile.css'
 
 const Profile = (props) => {
 
   return(
-    <div>
-      <ul>
-        <li>
+    <div className= 'profileBox'>
+      <div className= 'dataPointList'>
+        <div className='profileDataPoint'>
           Name: {props.name}
-        </li>
-        <li>
+        </div>
+        <div className='profileDataPoint'>
           Age: {props.age}
-        </li>
-        <li>
+        </div>
+        <div className='profileDataPoint'>
           Zodiac Sign: {props.sign}
-        </li>
-        <li>
+        </div>
+        <div className='profileDataPoint'>
           Degree Program: {props.subject}
-        </li>
+        </div>
         <CommentBox id={props.id} comments={props.comments}/>
-      </ul>
+      </div>
     </div>
   )
 }

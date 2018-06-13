@@ -1,13 +1,14 @@
 import React from 'react'
+import './comment.css'
 
 const Comment = (props) => {
   return (
-    <div>
-      <ul>
-        <li>{props.data.timestamp}</li>
-        <li>from: {props.data.authorName} </li>
-        <li>{props.data.text}</li>
-      </ul>
+    <div className='commentBox'>
+      <div className='commentContent'>
+        <div className='time'>{props.data.timestamp}</div>
+        <div className='from'>from: {props.data.authorName} </div>
+        <div className='commentText'>{props.data.text}</div>
+      </div>
     </div>
   )
 }
