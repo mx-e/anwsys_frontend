@@ -7,13 +7,15 @@
 
 .sideBar{
     order: 1;
-    flex-grow: 1;
+    flex: 1;
     background-color: lightgrey;
+    width: 100%;
 }
 
 .contentBox {
-    flex-grow: 2;
+    flex: 3;
     order: 2;
+    width: 100%;
 }
 
 .listItem {
