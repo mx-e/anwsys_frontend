@@ -1,6 +1,7 @@
 import React from 'react'
 import Profile from './profile'
 import './profile-list.css'
+import { server } from '../data-request'
 
 class ProfileList extends React.Component {
   constructor() {
@@ -54,14 +55,44 @@ class ProfileList extends React.Component {
   }
 
   addComment = (name, text, id) => {
-    this.setState(state => Object.assign(state, {}, {
-      comments: state.comments.concat([{
-        timestamp: 'now',
-        authorName: name,
-        id: id,
-        text: text
-        }])
-    }))
+  server.post('/TeamDirectory/API/comments', {
+      authorName: name,
+      id: id,
+      text: text,
+      timestamp: Date.now().toString()
+    })
+    .then(function (response) {
+      console.log(response);
+      server.get('/TeamDirectory/API/comments')
+        .then( (response) => {
+          this.setState(state => Object.assign(state, {}, {
+            comments: response
+          }))
+        })
+    })
+  }
+
+  getComments = () => {
+    server.get('/TeamDirectory/API/comments')
+      .then( (response) => {
+        this.setState(state => Object.assign(state, {}, {
+          comments: response
+        }))
+      })
+  }
+
+  getUsers = (url) => {
+    server.get(url)
+      .then( (response) => {
+        this.setState(state => Object.assign(state, {}, {
+          profileList: response
+        }))
+      })
+  }
+
+  componentDidMount(){
+    this.getUsers('/TeamDirectoryWeb/API/user')
+    this.getComments()
   }
 
   render() {
